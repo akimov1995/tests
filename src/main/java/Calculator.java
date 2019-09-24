@@ -20,7 +20,7 @@ public class Calculator {
     public int divide(int a, int b){
         if(b == 0){
             logger.error("Ошибка: в методе divide параметр b = 0");
-            throw new ArithmeticException();
+            throw new ArithmeticException("Ошибка: нельзя выполнить деление на 0");
         }
 
         int result = a/b;
@@ -46,7 +46,7 @@ public class Calculator {
     public double sqrt(int a){
         if(a<0){
             logger.error("Ошибка: в методе sqrt параметр a < 0");
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Ошибка: нельзя извлечь корень из отрицательного числа");
         }
         double result = Math.sqrt(a);
         logger.info(MessageFormat.format("Выполнен метод sqrt параметры a = {0}," +
@@ -57,8 +57,8 @@ public class Calculator {
     public boolean isPrime(int a) {
         boolean isPrime = true;
         if(a<1){
-            logger.error("Ошибка: в методе isPrime параметр a <= 0");
-            throw new IllegalArgumentException();
+            logger.error("Ошибка: в методе isPrime параметр a < 1");
+            throw new IllegalArgumentException("Ошибка: число должно быть натуральным");
         }
         if(a==1) {
             isPrime = false;
@@ -80,7 +80,7 @@ public class Calculator {
     public int fibonacci(int n) {
         if(n < 0){
             logger.error("Ошибка: в методе fibonacci параметр n < 0");
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Ошибка: число должно быть натуральным");
         }
         else {
             if (n <= 1) return n;
